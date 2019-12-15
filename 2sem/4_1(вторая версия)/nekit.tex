@@ -1,0 +1,200 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper]{geometry}
+                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}
+\usepackage{listings}
+\usepackage[cm]{fullpage}
+\usepackage{gensymb}
+\usepackage{layout}
+\usepackage{amssymb,amsmath,amsfonts,latexsym,dsfont}
+\usepackage{ upgreek }
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[warn]{mathtext}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage[english,bulgarian,ukrainian,russian]{babel}
+%\titleformat{\section}[block]{\color{black}\Large\bfseries\filcenter}{}{1em}{}
+\setcounter{secnumdepth}{0}
+\renewcommand{\le}{\leqslant} 
+\renewcommand{\ge}{\geqslant }
+
+           		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+
+
+
+\title{Лабораторная работа 2.1.6. Эффект Джоуля-Томсона.}
+\author{Никита Павличенко}
+%\date{October 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\pgfplotstableread{
+X Y
+411879.3 3.832923833
+371868.168 3.415233415
+337152.627 3.046683047
+292434.303 2.555282555
+251246.373 2.113022113
+}\roomtemp
+
+\pgfplotstableread{
+X Y
+417763.29 3.025404157
+370691.37 2.586605081
+342448.218 2.309468822
+297729.894 1.963048499
+245362.383 1.524249423
+}\fiftytemp
+
+\pgfplotstableread{
+X Y
+414821.295 2.628062361
+372456.567 2.249443207
+344801.814 2.026726058
+296553.096 1.670378619
+239478.393 1.269487751
+}\seventytemp
+
+\begin{document}
+
+\maketitle
+\fancyfoot[C]{МФТИ}%
+\thispagestyle{fancy}
+\newpage
+\section{Цель работы}
+\begin{enumerate}
+    \item Определение изменения температуры углекислого газа при протекании через малопроницаемую перегородку при разных начальных значениях давления и температуры.
+    \item Вычисление по результатам опытов коэффициентов Ван-дер-Ваальса $a$ и $b$.
+\end{enumerate}
+\section{В работе используются:}
+\begin{enumerate}
+    \item Трубка с пористой перегородкой;
+    \item труба Дьюара;
+    \item термостат;
+    \item термометры;
+    \item дифференциальная термопара;
+    \item микровольтметр;
+    \item балластный баллон;
+    \item манометр.
+\end{enumerate}
+
+\section{Теоретическая часть}
+
+\begin{equation}
+    \varkappa = \frac{Q}{T_1 - T_2}\frac{1}{2\pi L}\ln\frac{r_2}{r_1}, 
+\end{equation}
+где $r_1$ — радиус нити, $r_2$ — радиус внешнего цилиндра, $L$ — длина нити.
+
+\section{Ход работы}
+\begin{enumerate}
+    \item Найдем значение $\Delta T$ при разных давлениях внутри сосуда и разных температурах.\newline
+    \begin{center}
+    		\begin{tabular}{|c|c|c|c|c|c|}
+    		\hline 
+    		\multicolumn{6}{|c|}{$T=27,14C^\circ = 300,29K$} \\ 
+    		\hline 
+   		 $P$, кгс & 4,2 & 3,792 & 3,438 & 2,982 & 2,562 \\ 
+   		 \hline 
+    		$\Delta T$, $C^\circ$ & 3,833 & 3,415 & 3,047 & 2,555 & 2,113 \\ 
+    		\hline 
+    		$U$, мкв & 0,156 & 0,139 & 0,124 & 0,104 & 0,086 \\ 
+    \hline 
+    \end{tabular}
+    \end{center}
+    \begin{center}
+    		\begin{tabular}{|c|c|c|c|c|c|}
+    		\hline 
+    		\multicolumn{6}{|c|}{$T=50,05C^\circ = 323,2K$} \\ 
+    		\hline 
+   		 $P$, кгс & 4,26 & 3,78 & 3,492 & 3,036 & 2,502 \\ 
+   		 \hline 
+    		$\Delta T$, $C^\circ$ & 3,025  & 2,587 & 2,309 & 1,963 & 1,524 \\ 
+    		\hline 
+    		$U-U_0$, мкв & 0,131 & 0,112 & 0,1 & 0,085 & 0,066 \\ 
+    		\hline 
+    		$U$, мкв & 0,138 & 0,119 & 0,107 & 0,092 & 0,073 \\ 
+    \hline 
+    \end{tabular}
+    \end{center}
+    \begin{center}
+    		\begin{tabular}{|c|c|c|c|c|c|}
+    		\hline 
+    		\multicolumn{6}{|c|}{$T=70C^\circ = 343,15K$} \\ 
+    		\hline 
+   		 $P$, кгс & 4,23 & 3,798 & 3,516 & 3,024 & 2,442 \\ 
+   		 \hline 
+    		$\Delta T$, $C^\circ$ & 2,628  & 2,249 & 2,027 & 1,67 & 1,269 \\ 
+    		\hline 
+    		$U-U_0$, мкв & 0,118 & 0,101 & 0,091 & 0,075 & 0,066 \\ 
+    		\hline 
+    		$U$, мкв & 0,138 & 0,119 & 0,107 & 0,092 & 0,073 \\ 
+    \hline 
+    \end{tabular}
+    \end{center}
+    \begin{center}
+    	\begin{tikzpicture}
+    	\begin{axis}[
+	title = Зависимость $\Delta T$ от $P$,
+	height = 300,
+	width = 450,
+	xlabel = {$P$, Па},
+	ylabel = {$\Delta T$, K},
+	legend style={
+		at={(0.165,-0.5)},
+		anchor=south
+	}
+	]
+	%\legend{$27.14C^\circ$, $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+%\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$, $50.05C^\circ$, $\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+%\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+	\addplot[only marks, blue] table {\roomtemp};
+	\addlegendentry{$27.14C^\circ$}
+	\addplot [dashed, blue] table[
+    y={create col/linear regression={y=Y}}
+	]  {\roomtemp};
+	\addlegendentry{
+$1.07\cdot 10^{-5} \cdot x - 0.58$}
+	\addplot[only marks, red] table {\fiftytemp};
+	\addlegendentry{$50.05C^\circ$}
+	\addplot [dashed, red] table[
+    y={create col/linear regression={y=Y}}
+	]  {\fiftytemp};
+	\addlegendentry{$8.66\cdot 10^{-6} \cdot x - 0.62$}
+	\addplot[only marks] table {\seventytemp};
+	\addlegendentry{$70C^\circ$}
+	\addplot [dashed, black] table[
+    y={create col/linear regression={y=Y}}
+	]  {\seventytemp};
+	\addlegendentry{%
+$\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+	\end{axis}
+    	\end{tikzpicture}
+    \end{center}
+ 	\item Найдем зависимость $\Delta T$ от $P$. Посчитаем коэффициенты зависимости и построим график для каждой температуры.
+ 	\item Полученный тангенс угла наклона является коэффициентом Джоуля-Томсона. Найдем коэффициенты $a$ и $b$ через формулу
+ 	\begin{equation}
+ 	\mu = \frac{\Delta T}{\Delta P} \approx \frac{\frac{2a}{RT}-b}{C_p}
+ 	\end{equation}
+ 	Получаем для температур $27.14C^\circ$ и $50.05C^\circ$
+ 	\begin{equation*}
+ 	a = 1.04438\frac{Н\cdot м^4}{моль^2}
+ 	\end{equation*}
+ 	\begin{equation*}
+ 	b = 525.829 \frac{см^3}{моль}
+ 	\end{equation*}
+ 	Для $50.05C^\circ$ и $70C^\circ$
+ 	\begin{equation*}
+ 	a = 1.04438\frac{Н\cdot м^4}{моль^2}
+ 	\end{equation*}
+ 	\begin{equation*}
+ 	b = 525.829 \frac{см^3}{моль}
+ 	\end{equation*}
+\end{enumerate}
+\end{document}.

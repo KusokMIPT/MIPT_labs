@@ -1,0 +1,296 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper]{geometry}
+% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}
+\usepackage{listings}
+\usepackage[cm]{fullpage}
+\usepackage{layout}
+\usepackage{amssymb,amsmath,amsfonts,latexsym,dsfont}
+\usepackage{ upgreek }
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[warn]{mathtext}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[english,bulgarian,ukrainian,russian]{babel}
+%\titleformat{\section}[block]{\color{black}\Large\bfseries\filcenter}{}{1em}{}
+\setcounter{secnumdepth}{0}
+\renewcommand{\le}{\leqslant} 
+\renewcommand{\ge}{\geqslant }
+
+% ... or a4paper or a5paper or ... 
+%\geometry{landscape} % Activate for rotated page geometry
+%\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+\ifx\pdfoutput\undefined
+\usepackage{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\lstset{language=C++} 
+
+%Доп. пакеты:
+\usepackage{lipsum}
+\usepackage{multicol}
+
+ 
+
+\begin{document}
+\twocolumn
+\section{Политропы}
+\begin{equation*}
+\frac{dV}{V} + \frac{dP}{P} = \frac{dT}{T}
+\end{equation*}
+\begin{equation*}
+n = \gamma = \frac{C_p}{C_v} \text{ — для адиабаты}
+\end{equation*}
+\begin{equation*}
+PV^n = const
+\end{equation*}
+\begin{equation*}
+TV^{n-1} = const
+\end{equation*}
+\begin{equation*}
+n = \frac{C - C_P}{C - C_V}
+\end{equation*}
+\begin{equation*}
+A = \frac{P_1V_1}{n - 1} \bigg(1 - \bigg(\frac{V_1}{V_2}\bigg)^{n-1}\bigg)
+\end{equation*}
+Теплоемкость смеси газов:
+\begin{equation*}
+C_{Vсмеси} = \frac{\sum \nu_i C_{V_i}}{\sum \nu_i}
+\end{equation*}
+Скорость звука/истечение газов:
+\begin{equation*}
+c_{зв} = \sqrt{\bigg(\frac{(\partial P}{\partial \rho}\bigg)_{ад}} = \sqrt{(\gamma - 1)C_P T} = 
+\end{equation*}
+\begin{equation*}
+= \sqrt{\frac{\gamma P}{\rho}}= \sqrt{\frac{\gamma RT}{M}}
+\end{equation*}
+Энтропия:
+\begin{equation*}
+dS = \frac{\delta Q}{T}
+\end{equation*}
+\begin{equation*}
+dS = C_V \frac{dT}{T} + R\frac{dV}{V}
+\end{equation*}
+\begin{equation*}
+S(T, V) = \nu(C_v \ln T + R\ln V + S_0)
+\end{equation*}
+\begin{equation*}
+S(T, P) = \nu(C_P \ln T - R\ln P + S_0)
+\end{equation*}
+\begin{equation*}
+\Delta S = \nu(C_V \ln \frac{T}{T_0} + R \ln \frac{V}{V_0})
+\end{equation*}
+Циклы/машины:
+\begin{equation*}
+Q = \int TdS
+\end{equation*}
+\begin{equation*}
+\oint \frac{\delta Q}{T} = 0
+\end{equation*}
+Приведенные теплоты:
+\begin{equation*}
+\frac{Q_н}{T_н} = \frac{|Q_х|}{T_х}
+\end{equation*}
+
+\section{Термодинамические потенциалы и соотношения}
+Свободная энергия:
+\begin{equation*}
+\psi(T,V) = F(T,V) = U - TS 
+\end{equation*}
+Энтальпия:
+\begin{equation*}
+I(P,S) = H(P,S) = U + PV
+\end{equation*}
+Потенциал Гиббса:
+\begin{equation*}
+Ф(T,V) = G = Z = U - TS + PV
+\end{equation*}
+\begin{equation*}
+d\psi = -PdV - SdT
+\end{equation*}
+\begin{equation*}
+dФ = -SdT + VdP
+\end{equation*}
+\begin{equation*}
+dI = TdS + VdP
+\end{equation*}
+\begin{equation*}
+\bigg(\frac{\partial \psi}{\partial V}\bigg)_T = -P
+\end{equation*}
+\begin{equation*}
+\bigg(\frac{\partial \psi}{\partial T}\bigg)_V = -S
+\end{equation*}
+
+Важнейшие соотношения:
+\begin{equation*}
+\bigg(\frac{\partial S}{\partial V}\bigg)_T = \bigg(\frac{\partial P}{\partial T}\bigg)_V
+\end{equation*}
+\begin{equation*}
+\bigg(\frac{\partial S}{\partial P}\bigg)_T = -\bigg(\frac{\partial V}{\partial T}\bigg)_P
+\end{equation*}
+
+\begin{equation*}
+\bigg(\frac{\partial T}{\partial V}\bigg)_S = -\bigg(\frac{\partial P}{\partial S}\bigg)_V
+\end{equation*}
+
+\begin{equation*}
+\bigg(\frac{\partial T}{\partial P}\bigg)_S = \bigg(\frac{\partial V}{\partial S}\bigg)_P
+\end{equation*}
+
+\begin{equation*}
+C_P - C_V = T\bigg(\frac{\partial P}{\partial T}\bigg)_V\bigg(\frac{\partial V}{\partial T}\bigg)_P
+\end{equation*}
+\begin{equation*}
+P + \bigg(\frac{\partial U}{\partial V}\bigg)_T = T\bigg(\frac{\partial P}{\partial T}\bigg)_V
+\end{equation*}
+
+\begin{equation*}
+\bigg(\frac{\partial P}{\partial T}\bigg)_V\bigg(\frac{\partial T}{\partial V}\bigg)_P\bigg(\frac{\partial V}{\partial P}\bigg)_T = -1
+\end{equation*}
+Тепловой коэффициент расширения:
+\begin{equation*}
+\alpha =
+\frac{1}{V_0}\bigg(\frac{\partial V}{\partial T}\bigg)_P
+\end{equation*}
+Изотермическая сжимаемость:
+\begin{equation*}
+\beta_T = -\frac{1}{V}\bigg(\frac{\partial V}{\partial P}\bigg)_T
+\end{equation*}
+Изотермический модуль объемного сжатия:
+\begin{equation*}
+K_T = -V\bigg(\frac{\partial P}{\partial V}\bigg)_T
+\end{equation*}
+\section{Поверхностное натяжение}
+\begin{equation*}
+U_{пленки} = П(\sigma - T \frac{\partial \sigma}{\partial T}
+\end{equation*}
+\begin{equation*}
+U_{пузыря} = 2П(\sigma - T \frac{\partial \sigma}{\partial T} + C_V V \Delta T
+\end{equation*}
+\begin{equation*}
+F_{пов. натяжения} = \sigma l = ES \frac{2Пr - l}{l} \frac{\Delta l}{r}
+\end{equation*}
+\section{Фазовые переходы}
+\begin{equation*}
+Ф = const
+\end{equation*}
+\begin{equation*}
+\frac{dP}{dt} = \frac{S_ж - S_т}{v_ж - v_т} = \frac{q_{пп}}{T(v_ж - v_т)}
+\end{equation*}
+При парообразовании:
+\begin{equation*}
+\frac{dP}{dt} = \frac{q}{Tv_{пара}} 
+\end{equation*}
+В окрестности тройной точки:
+\begin{equation*}
+q_{пл} + \lambda_{исп} - q_{возг} = 0
+\end{equation*}
+Увеличение массы насыщенного пара при увеличении $T$ на $\Delta T$:
+\begin{equation*}
+\Delta m = \frac{PVM}{RT^2}\bigg(\frac{\lambda M}{RT}-1\bigg)\Delta T
+\end{equation*}
+
+\section{Гидродинамика}
+Формула Бернулли:
+\begin{equation*}
+\xi + \frac{P}{\rho} = const
+\end{equation*}
+\begin{equation*}
+\frac{v^2}{2} + gh + \frac{P}{\rho} = const
+\end{equation*}
+
+\section{Течение газов}
+\begin{equation*}
+C_P T + \frac{v^2}{2} = C_P T_0
+\end{equation*}
+\begin{equation*}
+c_{зв} = 
+\end{equation*}
+
+\section{Газ Ван-дер-Ваальса}
+\begin{equation*}
+P=\frac{RT}{V-b} - \frac{a}{V^2}
+\end{equation*}
+\begin{equation*}
+U = C_v T - \frac{a}{V}
+\end{equation*}
+Политропа:
+\begin{equation*}
+T(V-b)^{n-1} = const
+\end{equation*}
+Адиабата:
+\begin{equation*}
+n = k = 1 + \frac{R}{C_V}
+\end{equation*}
+
+\begin{equation*}
+\Delta S = C_V\ln \frac{T_2}{T_2} + R \ln \frac{V_2 - b}{V_1 - b}
+\end{equation*}
+Интегральный эффект Джоуля-Томсона:
+\begin{equation*}
+(C_V + R)(T_2-T_1) = \frac{bRT_1}{V_1-b} - \frac{2a}{V_1}
+\end{equation*}
+
+\onecolumn
+
+\section{Элименты статистической термодинамики}
+
+\section{Распределение Максвелла}
+\subsubsection{ВЫТЕКАНИЕ/ВТЕКАНИЕ ГАЗА?}
+????
+\subsubsection{Распределение Максвела по модолю скорости:}\
+\indent То есть доля числа частиц имеющих модуль скорсоти между \textbf{U} и \textbf{U + dU} выраженную через функцию распределения \textbf{F(U)}:
+
+\begin{enumerate}
+\item Трехмерный случай:
+\[\dfrac{dn}{n_0} = f(U_x) \cdot f(U_y) \cdot f(U_z) dU_x\cdot dU_y \cdot dU_z = \Big(\dfrac{m}{2\Pi*k*T}\Big)^{3/2}*e^{\Big(-\dfrac{mU^2}{2kT}\Big)}\cdot 4\Pi*U^2dU \] 
+
+\item Двумерный случай:
+\[\dfrac{dn}{n_0} = \Psi(U)dU = \dfrac{m}{kT}\cdot e^{\Big(-\dfrac{mU^2}{2kT}\Big)}*U dU\]
+
+\end{enumerate}
+\section{Общее}
+\begin{multicols}{2}[
+\textcolor{blue}{\fbox{Общие полезные формулы(ДОПИСАТЬ!!)}} 
+]
+\begin{itemize}
+\item Для иделаьонго газа:
+\[<U> = \Big(\dfrac{8kT}{\pi m} = \dfrac{8RT}{\pi M}  \Big) \]
+\end{itemize}
+
+\begin{itemize}
+\item Для иделаьонго газа:
+\[<U> = \Big(\dfrac{8kT}{\pi m} = \dfrac{8RT}{\pi M}  \Big) \]
+\end{itemize}
+
+\end{multicols}
+
+
+\section{Полезные интегралы:}
+
+\numberwithin{equation}{section}
+\begin{equation}
+\int\limits_{-\infty}^{+\infty} e^{-\gamma \cdot x^2} dx = \sqrt{\frac{\Pi}{\gamma}}
+\end{equation}
+
+\begin{equation}
+\int\limits_{-\infty}^{+\infty} x^2 \cdot e^{-\gamma \cdot x^2} dx = \frac{1}{2\gamma} \cdot \sqrt{\frac{\Pi}{\gamma}}
+\end{equation}
+
+\begin{equation}
+\int\limits_{0}^{+\infty} x \cdot e^{-\gamma \cdot x^2} dx = \frac{1}{2\gamma} 
+\end{equation}
+
+\begin{equation}
+\int\limits_{0}^{+\infty} x^3 \cdot e^{-\gamma \cdot x^2} dx = \frac{1}{2\gamma^2} 
+\end{equation}
+
+\begin{equation}
+\int\limits_{0}^{+\infty} x^5 \cdot e^{-\gamma \cdot x^2} dx = \frac{1}{\gamma^3} 
+\end{equation}
+
+
+
+\end{document}

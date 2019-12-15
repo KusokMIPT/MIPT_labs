@@ -1,0 +1,249 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper]{geometry}
+                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}
+\usepackage{listings}
+\usepackage[cm]{fullpage}
+\usepackage{gensymb}
+\usepackage{layout}
+\usepackage{amssymb,amsmath,amsfonts,latexsym,dsfont}
+\usepackage{ upgreek }
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[warn]{mathtext}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+
+\usepackage{fancyhdr}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage[english,bulgarian,ukrainian,russian]{babel}
+%\titleformat{\section}[block]{\color{black}\Large\bfseries\filcenter}{}{1em}{}
+\setcounter{secnumdepth}{0}
+\renewcommand{\le}{\leqslant} 
+\renewcommand{\ge}{\geqslant }
+\usepackage{wrapfig}
+           		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+
+
+
+\title{Лабораторная работа 2.4.1. Определение теплоты испарения жидкости.}
+\author{Никита Павличенко}
+%\date{October 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+
+\pgfplotstableread{
+X Y
+313.15 17969
+311.15 16554
+309.15 14660.5
+307.15 13138.5
+305.15 11862.5
+303.15 10660
+301.15 9624
+299.15 8640.5
+297.15 7750
+295.15 6886.5
+293.42 6195.5
+}\ptbl
+
+\pgfplotstableread{
+X Y
+0.003193357815743 9.796403329926454
+0.003213883978788 9.714383043445341
+0.003234675723759 9.592912081271037
+0.003255738238646 9.483302130271253
+0.003277076847452 9.381137442918183
+0.003298697014679 9.274253697719836
+0.003320604349992 9.133891199812776
+0.00334280461307 9.064215730494046
+0.003365303718661 8.955448122347393
+0.003388107741826 8.837318252357386
+0.003408083975189 8.731578501056548
+}\lnptbl
+
+
+\begin{document}
+
+\maketitle
+\fancyfoot[C]{МФТИ}%
+\thispagestyle{fancy}
+\newpage
+\section{Описание работы}
+\subsection{В работе используются:}
+\begin{enumerate}
+	\item термостат;
+	\item герметичный сосуд, заполненый исследуемой жидкостью;
+	\item отсчетный микроскоп.
+\end{enumerate}
+
+
+\subsection{Установка}
+Наполненный водой резервуар 1 играет роль термостата. Нагревание термостата производится сприалью 2, подогреваемой электричесикм током. Для охлаждения воды в термостате через змеевик 3 пропускается водопроводная вода. Вода в термостате перемешивается воздухом, поступающим через трубку 4. Темпераура воды измеряется термометром 5. В термостат погружен запаянный прибор 6 с исследуемой жидкостью. Над ней находится насыщенный пар (перед заполнением прибора воздух из него был откачан). Давление насыщенного пара определяется по ртутному манометру, соединенному с исследуемым объемом. Отсчет показаний манометра производится при помощи микроскопа.
+
+
+\subsection{Цель работы:}
+\begin{enumerate}
+\item Измерение давления насыщенного пара жидкости при раз- личных температурах;
+\item вычисление по  полученным  данным теплоты испарения  с помощью уравнения Клайперона-Клаузиуса.
+\end{enumerate}
+
+\subsection{Теория}
+\textit{\textbf{Испарением}} называется переход вещества из жидкого в газообразное состояние. Оно происходит на свободной поверхности жидкости. При испарении с поверхности вылетают молекулы, образуя над ней пар. Для выхода из жидкости молекулы должны преодолеть силы молекулярного сцепления. Кроме того, при испарении совершается работа против внешнего давления $P$, поскольку объем жидкости меньше объема пара. Не все молекулы жидкости способны совершить эту работу, а только те из них, которые обладают достаточной кинетической энергиеий. Поэтому переход части молекул в пар приводит к обеднению жидкости быстрыми молекулами, т. е. к ее охлаждению.\newline\newline
+Количество теплоты, необходимое для изотермического испарения одного моля жидкости при внешнем давлении, равном упругости ее насыщенных паров, называется \textbf{\textit{молярной теплотой испарения (парообразования)}}. В работе используется метод определения теплоты испарения, основанный на уравнении Клайперона-Клаузиуса:
+\begin{equation}
+\frac{dP}{dT}=\frac{L}{V_2-V_1},
+\end{equation}
+где $P$ — давление насыщенного пара при температуре $T$, $L$ — теплота испарения жидкости, $V_1$ — объем жидкости, $V_2$ — объем пара. $V_1$ составляет порядка $0.5\%$ $V_2$, поэтому им можно пренебречь. Пусть $V_2 = V$. Свяжем объем с давлением и температурой с помощью уравнения Ван-дер-Ваальса:
+\begin{equation}
+\Big(P+\frac{a}{V^2}\Big)\Big(V-b\Big)=RT
+\end{equation}
+Пренбрежение константами $a$ и $b$ внесет погрешность менее $3\%$ при нормальном давлении, а при более низких давлениях еще меньше. Тогда можно считать
+\begin{equation}
+V = \frac{RT}{P}.
+\end{equation}
+Подставим (3) в (1) и получим, пренебрегая $V_1$
+\begin{equation}
+L = \frac{RT^2}{P}\frac{dP}{dT} = -R\frac{d(\ln P)}{d(1/T)}
+\end{equation}
+
+\section{Ход работы}
+\begin{enumerate}
+\item Сначала замерим высоту конденсата. В нашем случае высота слоя составила $\Delta h = 9.2$см. Этот слой будет создавать добавочное давление $\Delta P= \rho g h \approx 901.6$Па. Будем учитывать это давление при дальнейших рассчетах.
+\item Включим термостат. Будем достаточно медленно (чтобы температура спирта осталась близкой к температуре воды) нагревать воду с шагом в $2^\circ C$ от комнатной температуры до $40^\circ C$. При этом будем заносить давление, измеренное через разность уровней, в таблицу 1.
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Результаты измерений при нагревании воды от $20^\circ C$ до $40^\circ C$} \label{tab:title} 
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+$h_1$, см & $h_2$, см & $T$, $^\circ C$ & $T$, K & $\Delta H$, м & $P$, $10^3$Па \\ 
+\hline 
+10,15 & 5,53 & 20,27 & 293,4 & 0,046 & 6,049 \\ 
+10,53 & 5,27 & 22 & 295,2 & 0,053 & 6,900 \\ 
+10,83 & 4,89 & 24 & 297,2 & 0,059 & 7,803 \\ 
+11,12 & 4,58 & 26 & 299,2 & 0,065 & 8,601 \\ 
+11,45 & 4,2 & 28 & 301,2 & 0,073 & 9,544 \\ 
+11,8 & 3,75 & 30 & 303,2 & 0,081 & 10,607 \\ 
+12,3 & 3,34 & 32 & 305,2 & 0,090 & 11,816 \\ 
+12,79 & 2,86 & 34 & 307,2 & 0,099 & 13,105 \\ 
+13,34 & 2,22 & 36 & 309,2 & 0,111 & 14,687 \\ 
+13,85 & 1,14 & 38 & 311,2 & 0,127 & 16,800 \\ 
+14,61 & 1,02 & 40 & 313,2 & 0,136 & 17,969 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+\item Откроем змеевик для охлаждения воды. Проведем аналогичные измерения при охлаждении и занесем их в таблицу 2.
+
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Результаты измерений при охлаждении воды} \label{tab:title} 
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+$h_1$, см & $h_2$, см & $T$, $^\circ C$ & $T$, K & $\Delta H$, м & $P$, $10^3$м \\ 
+\hline 
+14,61 & 1,02 & 40 & 313,15 & 0,136 & 17,969 \\ 
+13,95 & 1,61 & 38 & 311,15 & 0,123 & 16,308 \\ 
+13,35 & 2,27 & 36 & 309,15 & 0,111 & 14,634 \\ 
+12,75 & 2,77 & 34 & 307,15 & 0,100 & 13,172 \\ 
+12,33 & 3,3 & 32 & 305,15 & 0,090 & 11,909 \\ 
+11,88 & 3,75 & 30 & 303,15 & 0,081 & 10,713 \\ 
+11,49 & 4,12 & 28 & 301,15 & 0,074 & 9,704 \\ 
+11,09 & 4,49 & 26 & 299,15 & 0,066 & 8,680 \\ 
+10,7 & 4,84 & 24 & 297,15 & 0,059 & 7,697 \\ 
+10,45 & 5,21 & 22 & 295,15 & 0,052 & 6,873 \\ 
+10,25 & 5,41 & 20 & 293,15 & 0,048 & 6,342 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+
+По данным в таблицах 1 и 2 
+построим график и найдем зависимость $P(T)$ и $\ln P (1/T)$
+
+    	\begin{tikzpicture}
+    	\begin{axis}[
+	title = Зависимость $P$ от $T$,
+	height = 200,
+	width = 450,
+	xlabel = {$T$, $K$},
+	ylabel = {$P$, Па},
+	legend style={
+		at={(0.2,0.8)},
+		anchor=south
+	}
+	]
+	\addplot table [only marks, red] {\ptbl};
+	\addplot [dashed, red] table[
+    y={create col/linear regression={y=Y}}
+	]  {\ptbl};
+	\addlegendentry{%
+$\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+	\end{axis}
+    	\end{tikzpicture}
+    	\captionof{figure}{График зависимости давления насыщенного пара от температуры воды.}
+    	
+    	    	\begin{tikzpicture}
+    	\begin{axis}[
+	title = Зависимость $\ln P$ от $1/T$,
+	height = 200,
+	width = 450,
+	xlabel = {$1/T$, $1/K$},
+	ylabel = {$\ln P$, Па},
+	legend style={
+		at={(0.8,0.8)},
+		anchor=south
+	}
+	]
+	\addplot table [only marks, red] {\lnptbl};
+	\addplot [dashed, red] table[
+    y={create col/linear regression={y=Y}}
+	]  {\lnptbl};
+	\addlegendentry{%
+$\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x
+\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}
+	\end{axis}
+    	\end{tikzpicture}
+    	\captionof{figure}{График зависимости логарифма давления от величины, обратной температуре.}
+    	
+    	\item С помощью данных, полученных по графикам, вычислим значение $L$: \newline
+    	\textbf{По первому графику:}
+    	\begin{equation*}
+    		L_1 = \frac{1}{n} \sum_{i=1}^n \frac{RT_i^2}{P_i}\bigg(\frac{dP}{dT}\bigg)_i \approx 44390 \text{ Дж/моль}
+    	\end{equation*}
+    	\textbf{По второму графику:}
+    		\begin{equation*}
+    		L_2 = -R\frac{d(\ln P)}{d(1/T)} \approx 41294 \text{ Дж/моль}
+    	\end{equation*}
+\end{enumerate}
+\section{Погрешности}
+Для первого способа:
+\begin{equation*}
+\frac{\sigma L_1}{L_1} = \sqrt{2\Big(\frac{\sigma T}{T}\Big)^2 + \Big(\frac{\sigma P}{P}\Big)^2 + \Big(\frac{\sigma \frac{dP}{dT}}{\frac{dP}{dT}}\Big)^2} = \sqrt{2\Big(\frac{0,1}{302,5}\Big)^2 + \Big(\frac{0,01}{8,54}\Big)^2 + \Big(\frac{591}{10^3}\Big)^2} \approx 6\%
+\end{equation*}
+Для второго способа:
+\begin{equation*}
+\sigma_L = \frac{R}{\sqrt{n}}\sqrt{\frac{\langle (\ln P)^2 \rangle - \langle \ln P \rangle^2}{\langle \frac{1}{T^2} \rangle - \langle \frac{1}{T} \rangle^2}-k^2} =\frac{8,31}{\sqrt{11}}\sqrt{\frac{134,152 - 134,040}{2\cdot 10^{-7}} - 4692^2} \approx 475,1
+\end{equation*}
+\section{Результаты}
+Занесем все полуенные результаты в таблицу:\newline
+
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Результаты измерений удельной теплоты испарения спирта} \label{tab:title} 
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+$L_1$ Дж/моль & $L_1$ КДж/кг & $\varepsilon_{L_1}$ , $\%$  & $L_2$ Дж/моль & $L_2$ КДж/кг & $\varepsilon_{L_2}$ , $\%$  \\ 
+\hline 
+44390,0 & 946,82 & 6 & 41294,0 & 896,33 & 1,1 \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+
+\section{Вывод}
+Как видно из полученных данных, использование графика логарифма давления от $1/T$ дает результат со значительно меньшей погрешностью, чем использованием первого графика. Полученное значение (921,57 КДж/кг) не совсем соответствует табличному (837 КДж/кг). Погрешность может быть объяснена недостаточным временем между проведением измерений, так как жидкость и пар могли не успеть окончательно придти в термодинамическое равновесие, а также пренебрежением коэффициентами Ван-дер-Ваальса.
+\end{document}.
